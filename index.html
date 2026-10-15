@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Fernanda Reis · Psicóloga</title>
+  <meta name="description" content="Pedir ajuda não é fraqueza, é coragem, é maturidade, é cuidado. Fernanda Reis, psicóloga CRP 09/4514. Presencial em Goiânia e online.">
+  <meta name="theme-color" content="#100e0c">
+  <meta name="color-scheme" content="dark">
+  <meta property="og:title" content="Fernanda Reis · Psicóloga">
+  <meta property="og:description" content="Pedir ajuda não é fraqueza, é coragem, é maturidade, é cuidado.">
+  <meta property="og:image" content="img/fernanda.png">
+  <link rel="icon" href="img/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,500;1,8..60,500;1,8..60,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --night: #100e0c;
+      --side: #1c1815;
+      --cream: #f6f1ea;
+      --soft: #e4d9cc;
+      --line: rgba(246, 241, 234, 0.22);
+    }
+
+    * { box-sizing: border-box; }
+    html, body, h1, p, ul, li, blockquote { margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      min-height: 100svh;
+      background: var(--side);
+      color: var(--cream);
+      font-family: "Familjen Grotesk", "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection { background: var(--cream); color: var(--night); }
+
+    .palco {
+      position: relative;
+      width: min(480px, 100%);
+      min-height: 100vh;
+      min-height: 100svh;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background: var(--night);
+    }
+
+    .foto {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 12%;
+    }
+
+    .sombra {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 0 0, rgba(16, 14, 12, 0.72) 0%, rgba(16, 14, 12, 0.28) 28%, transparent 52%),
+        linear-gradient(180deg, rgba(16, 14, 12, 0.12) 0%, rgba(16, 14, 12, 0.05) 22%, rgba(16, 14, 12, 0.28) 46%, rgba(16, 14, 12, 0.82) 70%, rgba(16, 14, 12, 0.94) 100%);
+    }
+
+    .marca {
+      position: absolute;
+      z-index: 3;
+      top: calc(16px + env(safe-area-inset-top));
+      left: 16px;
+      width: min(46vw, 188px);
+      height: auto;
+      display: block;
+    }
+
+    .meio {
+      position: relative;
+      z-index: 1;
+      flex: 1 1 auto;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 108px 28px 10px;
+      min-height: 0;
+    }
+
+    .frase {
+      position: relative;
+      max-width: 16em;
+      text-align: center;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-style: italic;
+      font-weight: 500;
+      font-size: clamp(22px, 6vw, 30px);
+      line-height: 1.28;
+      letter-spacing: -0.02em;
+      color: #fffaf6;
+    }
+
+    .frase::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 54%;
+      width: 128%;
+      height: 170%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(ellipse at center, rgba(16, 14, 12, 0.62) 0%, rgba(16, 14, 12, 0.28) 48%, transparent 74%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .conteudo {
+      position: relative;
+      z-index: 1;
+      padding: 8px 22px calc(18px + env(safe-area-inset-bottom));
+      animation: sobe 0.6s ease both;
+    }
+
+    .crp {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--soft);
+    }
+
+    h1 {
+      margin-top: 6px;
+      font-family: "Source Serif 4", Georgia, serif;
+      font-weight: 500;
+      font-size: clamp(40px, 11vw, 52px);
+      letter-spacing: -0.04em;
+      line-height: 0.88;
+    }
+
+    .bio {
+      margin-top: 10px;
+      max-width: 26ch;
+      color: var(--soft);
+      font-size: 15px;
+      line-height: 1.35;
+    }
+
+    .linguas {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin: 14px 0 14px;
+    }
+
+    .linguas li {
+      min-width: 0;
+      text-align: center;
+      padding-top: 2px;
+    }
+
+    .flag {
+      height: 22px;
+      width: auto;
+      display: inline-block;
+      border-radius: 2px;
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.28);
+    }
+
+    .flag.be, .flag.pt { aspect-ratio: 3 / 2; }
+    .flag.us { aspect-ratio: 19 / 10; }
+    .flag.gb { aspect-ratio: 2 / 1; }
+
+    .idioma {
+      display: block;
+      margin-top: 7px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .pais {
+      display: block;
+      margin-top: 2px;
+      font-size: 10px;
+      line-height: 1.2;
+      color: var(--soft);
+      white-space: nowrap;
+    }
+
+    .acoes {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .botao {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 58px;
+      padding: 8px 16px;
+      border-radius: 16px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .botao svg { width: 22px; height: 22px; flex: none; }
+
+    .rotulo { display: flex; flex-direction: column; line-height: 1.15; }
+    .rotulo strong { font-size: 16px; font-weight: 600; }
+    .rotulo small { font-size: 12px; font-weight: 500; opacity: 0.72; }
+
+    .wa {
+      background: var(--cream);
+      color: var(--night);
+    }
+
+    .wa:hover { background: #fff; }
+
+    .ig {
+      color: var(--cream);
+      box-shadow: inset 0 0 0 1.5px var(--line);
+    }
+
+    .ig:hover { background: rgba(246, 241, 234, 0.06); }
+
+    .botao:active { transform: translateY(1px); }
+
+    .botao:focus-visible,
+    .marca:focus-visible {
+      outline: 2px solid var(--cream);
+      outline-offset: 3px;
+    }
+
+    .onde {
+      margin-top: 12px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      color: var(--soft);
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .onde span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .onde svg {
+      width: 15px;
+      height: 15px;
+      flex: none;
+      color: var(--cream);
+    }
+
+    @keyframes sobe {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    @media (max-height: 740px) {
+      .marca { width: min(40vw, 150px); }
+      .meio { padding-top: 78px; }
+      .frase { font-size: 20px; }
+      h1 { font-size: 36px; }
+      .botao { min-height: 52px; }
+      .linguas { margin: 10px 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .conteudo { animation: none; }
+      .botao { transition: none; }
+    }
+
+    @media (min-width: 900px) {
+      body {
+        display: grid;
+        place-items: center;
+        padding: 28px 16px;
+      }
+
+      .palco {
+        min-height: min(900px, calc(100svh - 56px));
+        height: min(900px, calc(100svh - 56px));
+        border-radius: 28px;
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.38);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="palco">
+    <img class="foto" src="img/fernanda.png" alt="Fernanda Reis em pé no consultório, com as mãos apoiadas na mesa.">
+    <div class="sombra" aria-hidden="true"></div>
+    <img class="marca" src="img/logo.png" alt="Fernanda Reis, psicóloga">
+
+    <div class="meio">
+      <blockquote class="frase">
+        Pedir ajuda não é fraqueza,<br>
+        é coragem, é maturidade,<br>
+        é cuidado.
+      </blockquote>
+    </div>
+
+    <div class="conteudo">
+      <p class="crp">Psicóloga · CRP 09/4514</p>
+      <h1>Fernanda<br>Reis</h1>
+      <p class="bio">Experiência clínica no Brasil e no exterior.</p>
+
+      <ul class="linguas" aria-label="Idiomas de atendimento">
+        <li>
+          <svg class="flag be" viewBox="0 0 3 2" aria-hidden="true" focusable="false">
+            <rect width="1" height="2" fill="#000"/>
+            <rect x="1" width="1" height="2" fill="#FDDA24"/>
+            <rect x="2" width="1" height="2" fill="#EF3340"/>
+          </svg>
+          <span class="idioma" lang="fr">Français</span>
+          <span class="pais">Bélgica</span>
+        </li>
+        <li>
+          <svg class="flag pt" viewBox="0 0 60 40" aria-hidden="true" focusable="false">
+            <rect width="60" height="40" fill="#FF0000"/>
+            <rect width="24" height="40" fill="#006600"/>
+            <circle cx="24" cy="20" r="6.4" fill="#FFCC00"/>
+            <circle cx="24" cy="20" r="4" fill="#003893"/>
+            <circle cx="24" cy="20" r="2.2" fill="#fff"/>
+          </svg>
+          <span class="idioma" lang="pt">Português</span>
+          <span class="pais">Portugal</span>
+        </li>
+        <li>
+          <svg class="flag us" viewBox="0 0 190 100" aria-hidden="true" focusable="false">
+            <rect width="190" height="100" fill="#fff"/>
+            <g fill="#B22234">
+              <rect width="190" height="7.69" y="0"/>
+              <rect width="190" height="7.69" y="15.38"/>
+              <rect width="190" height="7.69" y="30.77"/>
+              <rect width="190" height="7.69" y="46.15"/>
+              <rect width="190" height="7.69" y="61.54"/>
+              <rect width="190" height="7.69" y="76.92"/>
+              <rect width="190" height="7.69" y="92.31"/>
+            </g>
+            <rect width="76" height="53.85" fill="#3C3B6E"/>
+            <g fill="#fff">
+              <circle cx="8" cy="7" r="1.45"/><circle cx="19" cy="7" r="1.45"/><circle cx="30" cy="7" r="1.45"/><circle cx="41" cy="7" r="1.45"/><circle cx="52" cy="7" r="1.45"/><circle cx="63" cy="7" r="1.45"/>
+              <circle cx="13.5" cy="14.5" r="1.45"/><circle cx="24.5" cy="14.5" r="1.45"/><circle cx="35.5" cy="14.5" r="1.45"/><circle cx="46.5" cy="14.5" r="1.45"/><circle cx="57.5" cy="14.5" r="1.45"/>
+              <circle cx="8" cy="22" r="1.45"/><circle cx="19" cy="22" r="1.45"/><circle cx="30" cy="22" r="1.45"/><circle cx="41" cy="22" r="1.45"/><circle cx="52" cy="22" r="1.45"/><circle cx="63" cy="22" r="1.45"/>
+              <circle cx="13.5" cy="29.5" r="1.45"/><circle cx="24.5" cy="29.5" r="1.45"/><circle cx="35.5" cy="29.5" r="1.45"/><circle cx="46.5" cy="29.5" r="1.45"/><circle cx="57.5" cy="29.5" r="1.45"/>
+              <circle cx="8" cy="37" r="1.45"/><circle cx="19" cy="37" r="1.45"/><circle cx="30" cy="37" r="1.45"/><circle cx="41" cy="37" r="1.45"/><circle cx="52" cy="37" r="1.45"/><circle cx="63" cy="37" r="1.45"/>
+              <circle cx="13.5" cy="44.5" r="1.45"/><circle cx="24.5" cy="44.5" r="1.45"/><circle cx="35.5" cy="44.5" r="1.45"/><circle cx="46.5" cy="44.5" r="1.45"/><circle cx="57.5" cy="44.5" r="1.45"/>
+            </g>
+          </svg>
+          <span class="idioma" lang="en">English</span>
+          <span class="pais">EUA</span>
+        </li>
+        <li>
+          <svg class="flag gb" viewBox="0 0 60 30" aria-hidden="true" focusable="false">
+            <clipPath id="uk"><rect width="60" height="30"/></clipPath>
+            <g clip-path="url(#uk)">
+              <rect width="60" height="30" fill="#012169"/>
+              <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/>
+              <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4"/>
+              <path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/>
+              <path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/>
+            </g>
+          </svg>
+          <span class="idioma" lang="en">English</span>
+          <span class="pais">Reino Unido</span>
+        </li>
+      </ul>
+
+      <nav class="acoes" aria-label="Contato">
+        <a class="botao wa" href="https://wa.me/5562991138131?text=Ol%C3%A1%2C%20Fernanda.%20Gostaria%20de%20conversar%20sobre%20atendimento.">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M12.04 2C6.58 2 2.15 6.4 2.15 11.83c0 1.74.46 3.44 1.34 4.94L2 22l5.39-1.41a10 10 0 0 0 4.65 1.18h.01c5.46 0 9.89-4.4 9.89-9.83C21.94 6.4 17.5 2 12.04 2zm5.76 14.15c-.24.68-1.4 1.25-1.94 1.33-.5.08-1.12.11-1.81-.11-.42-.14-.95-.31-1.64-.6-2.88-1.24-4.76-4.13-4.9-4.32-.14-.19-1.16-1.54-1.16-2.94s.73-2.08 1-2.37c.24-.27.64-.4.86-.4h.62c.2 0 .46-.07.72.55.27.64.91 2.22.99 2.38.08.16.13.35.03.56-.1.21-.15.34-.3.52-.15.18-.31.4-.44.54-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.03 1.12 1 2.06 1.31 2.35 1.46.29.15.46.13.63-.08.17-.21.73-.85.92-1.14.19-.29.39-.24.64-.14.26.1 1.64.77 1.92.91.28.14.47.21.54.33.07.12.07.69-.17 1.37z"/>
+          </svg>
+          <span class="rotulo">
+            <strong>Chamar no WhatsApp</strong>
+            <small>62 99113-8131</small>
+          </span>
+        </a>
+        <a class="botao ig" href="https://instagram.com/psicologa.fernandareis">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none"/>
+          </svg>
+          <span class="rotulo">
+            <strong>Instagram</strong>
+            <small>@psicologa.fernandareis</small>
+          </span>
+        </a>
+      </nav>
+
+      <p class="onde">
+        <span>
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+          </svg>
+          Presencial em Goiânia
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-6v2h3v2H7v-2h3v-2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 2v9h16V6H4z"/>
+          </svg>
+          Online
+        </span>
+      </p>
+    </div>
+  </main>
+</body>
+</html>
